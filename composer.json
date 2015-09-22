@@ -1,0 +1,16 @@
+{
+	"name": "starter-kit/sql",
+	"type": "library",
+	"description": "PHP singleton for PDO",
+	"keywords": ["PDO", "SQL", "singleton"],
+	"authors": [{"name": "Sicaa", "email": "jes@sicaa.net"}],
+	"license": "MIT",
+	"version": "1.0.0",
+	"require": {
+		"php": ">=5",
+		"ext-PDO": "*"
+	},
+	"autoload": {
+		"psr-4": {"StarterKit\\SQL\\": ""}
+	}
+}
