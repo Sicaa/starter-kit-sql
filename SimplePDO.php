@@ -5,22 +5,27 @@ use PDO;
 
 class SimplePDO
 {
-	private $pdo = NULL;
-	private static $instance = NULL;
+	private $pdo;
+	private static $instance;
 
-	private static $dbName = NULL;
-	private static $host   = NULL;
-	private static $port   = '3306';
-	private static $dbUser = NULL;
-	private static $dbPwd  = NULL;
+	private static $dbName;
+	private static $host;
+	private static $port = '3306';
+	private static $dbUser;
+	private static $dbPwd;
 
 	private function __construct($dbName_ = NULL, $host_ = NULL, $port_ = NULL, $dbUser_ = NULL, $dbPwd_ = NULL)
 	{
-		self::$dbName = $dbName_;
-		self::$host   = $host_;
-		self::$port   = $port_;
-		self::$dbUser = $dbUser_;
-		self::$dbPwd  = $dbPwd_;
+		if (!is_null($dbName_))
+			self::$dbName = $dbName_;
+		if (!is_null($host_))
+			self::$host   = $host_;
+		if (!is_null($port_))
+			self::$port   = $port_;
+		if (!is_null($dbUser_))
+			self::$dbUser = $dbUser_;
+		if (!is_null($dbPwd_))
+			self::$dbPwd  = $dbPwd_;
 
 		$this->pdo = new PDO('mysql:host='.self::$host.';port='.self::$port.';dbname='.self::$dbName.';charset=utf8', self::$dbUser, self::$dbPwd);
 		$this->pdo->exec('SET NAMES utf8');
@@ -45,11 +50,11 @@ class SimplePDO
 		return self::$instance;
 	}
 
-	public function getReadableError($pdoStatement_, $infos_ = NULL)
+	public function getReadableError($pdoStatement_, $info_ = NULL)
 	{
 		$arrErrorInfo = $pdoStatement_->errorInfo();
 
-		$log = $infos_."\n";
+		$log = $info_."\n";
 		$log .= 'SQLSTATE : '.$arrErrorInfo[0]."\n";
 		$log .= 'Error code : '.$arrErrorInfo[1]."\n";
 		$log .= 'Message : '.$arrErrorInfo[2]."\n";
