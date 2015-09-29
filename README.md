@@ -1,6 +1,8 @@
-# starter-kit-sql
+# starter-kit-sql 
 
 PHP singleton for PDO
+
+[![Latest Stable Version](https://poser.pugx.org/starter-kit/sql/v/stable)](https://packagist.org/packages/starter-kit/sql) [![License](https://poser.pugx.org/starter-kit/sql/license)](https://packagist.org/packages/starter-kit/sql)
 
 ## Requirements
 
