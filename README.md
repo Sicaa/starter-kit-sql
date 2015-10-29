@@ -6,7 +6,7 @@ PHP singleton for PDO
 
 ## Requirements
 
-- PHP >= 5.*
+- PHP >= 5.3
 - PHP PDO extension
 
 ## Installation
